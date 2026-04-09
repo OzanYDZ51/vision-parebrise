@@ -1,8 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { COMPANY, SERVICES_SUBMENU, ZONES_SUBMENU } from '@/lib/constants';
 import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from 'lucide-react';
 import CloudDivider from './CloudDivider';
-import EyeMascot from './EyeMascot';
 
 export default function Footer() {
   return (
@@ -13,11 +13,14 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Brand */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <EyeMascot size={32} variant="happy" animate={false} />
-                <span className="font-display font-extrabold text-lg">
-                  <span className="text-primary">VISION</span> PARE-BRISE
-                </span>
+              <div className="mb-4">
+                <Image
+                  src="/images/logo-vision.png"
+                  alt="Vision Pare-Brise"
+                  width={150}
+                  height={56}
+                  className="h-[45px] w-auto object-contain brightness-0 invert"
+                />
               </div>
               <p className="text-text-light text-sm leading-relaxed mb-4">
                 {COMPANY.slogan}. Spécialiste du remplacement et de la réparation de pare-brise au Mans et dans toute la Sarthe.

@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X, Phone, Calendar, ChevronDown } from 'lucide-react';
 import { COMPANY, NAV_ITEMS, SERVICES_SUBMENU, ZONES_SUBMENU } from '@/lib/constants';
-import EyeMascot from './EyeMascot';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -45,12 +45,15 @@ export default function Header() {
     >
       <div className="max-w-[1200px] mx-auto px-5 md:px-8 flex items-center justify-between h-[72px]">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 font-display font-extrabold text-xl" onClick={closeMenu}>
-          <EyeMascot size={36} variant="happy" animate={false} />
-          <span className={scrolled ? 'text-primary' : 'text-white'}>VISION</span>
-          <span className={`px-2 py-0.5 rounded-md text-sm ${scrolled ? 'bg-dark text-white' : 'bg-white text-dark'}`}>
-            PARE-BRISE
-          </span>
+        <Link href="/" className="flex items-center shrink-0" onClick={closeMenu}>
+          <Image
+            src="/images/logo-vision.png"
+            alt="Vision Pare-Brise"
+            width={160}
+            height={60}
+            className={`h-[45px] w-auto object-contain transition-all ${scrolled ? '' : 'brightness-0 invert'}`}
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}

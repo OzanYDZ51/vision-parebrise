@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import SkyHero from '@/components/SkyHero';
 import USPBar from '@/components/USPBar';
 import InsuranceMarquee from '@/components/InsuranceMarquee';
@@ -43,6 +44,25 @@ export default function HomePage() {
     <>
       <SkyHero />
       <USPBar />
+
+      {/* Photo section */}
+      <section className="py-4 mt-8">
+        <div className="max-w-[1200px] mx-auto px-5 md:px-8">
+          <ScrollReveal animation="zoom-in" duration={800}>
+            <div className="rounded-3xl overflow-hidden shadow-xl">
+              <Image
+                src="/images/rollup-vision-2.jpg"
+                alt="Stand Vision Pare-Brise — Service professionnel de remplacement de pare-brise au Mans"
+                width={1280}
+                height={500}
+                className="w-full h-[250px] md:h-[380px] object-cover hover:scale-105 transition-transform duration-700"
+                priority
+              />
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       <InsuranceMarquee />
 
       {/* Services Bento Grid */}
@@ -78,6 +98,47 @@ export default function HomePage() {
       <ProcessTimeline />
 
       <TestimonialCarousel />
+
+      {/* Why Us - with flyer image */}
+      <section className="py-20" aria-labelledby="whyus-title">
+        <div className="max-w-[1200px] mx-auto px-5 md:px-8">
+          <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <ScrollReveal animation="fade-right" className="md:w-1/2">
+              <Image
+                src="/images/flyer-arguments.png"
+                alt="Les engagements Vision Pare-Brise : technicien qualifié, franchise offerte, intervention à domicile"
+                width={500}
+                height={700}
+                className="w-full max-w-[400px] mx-auto h-auto rounded-3xl shadow-xl"
+              />
+            </ScrollReveal>
+            <ScrollReveal animation="fade-left" delay={200} className="md:w-1/2">
+              <span className="section-label">Pourquoi nous ?</span>
+              <h2 id="whyus-title" className="text-3xl md:text-4xl font-display font-extrabold text-text leading-tight">
+                Un technicien qualifié,<br /><span className="text-primary">directement chez vous</span>
+              </h2>
+              <ul className="mt-6 space-y-4">
+                {[
+                  { title: '+3 ans d\'expérience', desc: 'Un technicien qualifié avec plus de 3 ans de métier.' },
+                  { title: 'Franchise offerte', desc: 'Votre franchise est prise en charge, vous ne payez rien.' },
+                  { title: 'Intervention à domicile', desc: 'On se déplace gratuitement dans toute la Sarthe.' },
+                  { title: 'Toutes assurances acceptées', desc: 'Sans surfacturation. Devis gratuit et vitrage d\'origine.' },
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-4 items-start">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-2.5 h-2.5 rounded-full bg-primary" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-text">{item.title}</p>
+                      <p className="text-sm text-text-muted">{item.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
 
       <ZonePreview />
 
