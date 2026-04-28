@@ -49,9 +49,9 @@ export default function Header() {
           <Image
             src="/images/logo-vision.png"
             alt="Vision Pare-Brise"
-            width={160}
-            height={60}
-            className={`h-[45px] w-auto object-contain transition-all ${scrolled ? '' : 'brightness-0 invert'}`}
+            width={247}
+            height={133}
+            className="h-[60px] w-auto object-contain transition-all"
             priority
           />
         </Link>

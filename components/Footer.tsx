@@ -17,9 +17,9 @@ export default function Footer() {
                 <Image
                   src="/images/logo-vision.png"
                   alt="Vision Pare-Brise"
-                  width={150}
-                  height={56}
-                  className="h-[45px] w-auto object-contain brightness-0 invert"
+                  width={247}
+                  height={133}
+                  className="h-[64px] w-auto object-contain"
                 />
               </div>
               <p className="text-text-light text-sm leading-relaxed mb-4">

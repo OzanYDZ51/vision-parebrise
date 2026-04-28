@@ -72,7 +72,7 @@ export default function SkyHero({ title, subtitle, variant = 'homepage' }: SkyHe
 
         {/* Mascot */}
         <div className="mt-12 flex justify-center">
-          <EyeMascot size={80} variant="happy" />
+          <EyeMascot size={240} variant="happy" />
         </div>
       </div>
     </section>

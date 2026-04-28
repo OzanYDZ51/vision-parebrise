@@ -8,7 +8,7 @@ export default function NotFound() {
     <section className="relative min-h-[80vh] flex items-center justify-center bg-sky-gradient overflow-hidden">
       <FloatingClouds count={5} />
       <div className="relative z-10 text-center px-5">
-        <EyeMascot size={80} variant="sad" className="mx-auto mb-6" animate={false} />
+        <EyeMascot size={240} variant="sad" className="mx-auto mb-6" animate={false} />
         <h1 className="text-6xl md:text-8xl font-display font-extrabold text-white mb-4">404</h1>
         <p className="text-2xl md:text-3xl font-display font-bold text-white/80 mb-2">
           Cette page s&apos;est envolée !

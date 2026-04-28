@@ -63,7 +63,7 @@ export default function ChatWidget() {
           {/* Header */}
           <div className="bg-teal-gradient p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <EyeMascot size={32} variant="happy" animate={false} />
+              <EyeMascot size={96} variant="happy" animate={false} />
               <div>
                 <p className="text-white font-bold text-sm">{COMPANY.name}</p>
                 <p className="text-white/60 text-xs">En ligne — Réponse instantanée</p>
@@ -106,7 +106,7 @@ export default function ChatWidget() {
                 </div>
                 {/* Bot response */}
                 <div className="flex gap-2 mb-4">
-                  <EyeMascot size={24} variant="happy" animate={false} className="shrink-0 mt-1" />
+                  <EyeMascot size={72} variant="happy" animate={false} className="shrink-0 mt-1" />
                   <div className="bg-primary-light rounded-2xl rounded-tl-md px-4 py-2.5 max-w-[85%]">
                     <p className="text-sm text-text">{FLOWS[view].answer}</p>
                   </div>

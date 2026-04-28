@@ -181,7 +181,7 @@ export default function HomePage() {
 
         <ScrollReveal animation="scale-in">
           <div className="max-w-[600px] mx-auto px-5 md:px-8 relative z-10">
-            <EyeMascot size={70} variant="happy" className="mx-auto mb-6" />
+            <EyeMascot size={210} variant="happy" className="mx-auto mb-6" />
             <h2 id="cta-title" className="text-3xl md:text-5xl font-display font-extrabold text-white leading-tight">
               Pare-brise fissuré ?<br />On a l&apos;oeil !
             </h2>

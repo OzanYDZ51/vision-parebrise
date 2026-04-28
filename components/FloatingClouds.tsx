@@ -1,19 +1,26 @@
 'use client';
 
+import Image from 'next/image';
+
 interface FloatingCloudsProps {
   count?: number;
   className?: string;
+  variant?: 'white' | 'blue';
 }
 
-export default function FloatingClouds({ count = 5, className = '' }: FloatingCloudsProps) {
+const CLOUD_ASPECT = 224 / 375;
+
+export default function FloatingClouds({ count = 5, className = '', variant = 'white' }: FloatingCloudsProps) {
+  const src = variant === 'blue' ? '/images/nuage-bleu.png' : '/images/nuage-blanc.png';
+
   const clouds = [
-    { width: 180, top: '10%', left: '-5%', opacity: 0.15, speed: 'animate-cloud-drift-slow', delay: '0s' },
-    { width: 120, top: '25%', right: '5%', opacity: 0.1, speed: 'animate-cloud-drift', delay: '-5s' },
-    { width: 200, top: '50%', left: '10%', opacity: 0.08, speed: 'animate-cloud-drift-slow', delay: '-10s' },
-    { width: 140, top: '70%', right: '15%', opacity: 0.12, speed: 'animate-cloud-drift-fast', delay: '-3s' },
-    { width: 160, top: '85%', left: '30%', opacity: 0.06, speed: 'animate-cloud-drift', delay: '-8s' },
-    { width: 100, top: '15%', left: '50%', opacity: 0.1, speed: 'animate-cloud-drift-fast', delay: '-12s' },
-    { width: 220, top: '40%', right: '-3%', opacity: 0.07, speed: 'animate-cloud-drift-slow', delay: '-15s' },
+    { width: 220, top: '8%', left: '-4%', opacity: 0.55, speed: 'animate-cloud-drift-slow', delay: '0s' },
+    { width: 150, top: '22%', right: '6%', opacity: 0.45, speed: 'animate-cloud-drift', delay: '-5s' },
+    { width: 260, top: '48%', left: '8%', opacity: 0.35, speed: 'animate-cloud-drift-slow', delay: '-10s' },
+    { width: 170, top: '68%', right: '12%', opacity: 0.5, speed: 'animate-cloud-drift-fast', delay: '-3s' },
+    { width: 200, top: '84%', left: '28%', opacity: 0.3, speed: 'animate-cloud-drift', delay: '-8s' },
+    { width: 130, top: '14%', left: '52%', opacity: 0.4, speed: 'animate-cloud-drift-fast', delay: '-12s' },
+    { width: 280, top: '38%', right: '-4%', opacity: 0.28, speed: 'animate-cloud-drift-slow', delay: '-15s' },
   ];
 
   return (
@@ -26,21 +33,19 @@ export default function FloatingClouds({ count = 5, className = '' }: FloatingCl
             top: cloud.top,
             left: cloud.left,
             right: cloud.right,
+            width: cloud.width,
+            height: cloud.width * CLOUD_ASPECT,
+            opacity: cloud.opacity,
             animationDelay: cloud.delay,
           }}
         >
-          <svg
-            width={cloud.width}
-            height={cloud.width * 0.5}
-            viewBox="0 0 200 100"
-            fill="white"
-            opacity={cloud.opacity}
-          >
-            <ellipse cx="70" cy="70" rx="50" ry="30" />
-            <ellipse cx="100" cy="55" rx="55" ry="35" />
-            <ellipse cx="140" cy="65" rx="45" ry="28" />
-            <ellipse cx="110" cy="70" rx="60" ry="30" />
-          </svg>
+          <Image
+            src={src}
+            alt=""
+            width={375}
+            height={224}
+            className="w-full h-full object-contain"
+          />
         </div>
       ))}
     </div>

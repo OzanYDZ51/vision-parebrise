@@ -180,7 +180,7 @@ export default function BookingTunnel() {
       <div ref={containerRef} className="max-w-lg mx-auto text-center">
         <div className="bg-white rounded-[28px] p-8 md:p-12 border border-border relative overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-success via-primary to-success" />
-          <EyeMascot size={60} variant="happy" className="mx-auto mb-4" animate={false} />
+          <EyeMascot size={180} variant="happy" className="mx-auto mb-4" animate={false} />
           <h2 className="text-2xl md:text-3xl font-display font-extrabold text-text mb-3">Rendez-vous confirmé !</h2>
           <p className="text-text-muted mb-1">Merci <b className="text-text">{data.name}</b></p>
           <p className="text-text-muted mb-2 text-sm">Votre créneau est réservé. Un technicien vous rappelle pour confirmer les détails.</p>
