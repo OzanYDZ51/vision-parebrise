@@ -15,7 +15,7 @@ export const SERVICES_DATA: Record<string, ServiceData> = {
     slug: 'remplacement-pare-brise',
     title: 'Remplacement de pare-brise',
     metaTitle: 'Remplacement Pare-brise Le Mans — Jusqu\'à 250€ Offerts | Vision Pare-Brise',
-    metaDescription: 'Remplacement de pare-brise au Mans et en Sarthe. Jusqu\'à 250€ offerts, franchise offerte, toutes assurances. Intervention à domicile en 1h. Appelez le 02 55 99 40 46.',
+    metaDescription: 'Remplacement de pare-brise au Mans et en Sarthe. Jusqu\'à 250€ offerts, franchise offerte, toutes assurances. Intervention à domicile en 1h. Appelez le 02 55 99 62 25.',
     heroTitle: 'Remplacement de pare-brise au Mans',
     heroSubtitle: 'Jusqu\'à 250€ offerts pour chaque remplacement. Intervention chez vous, sans avance de frais.',
     intro: "Pare-brise fissuré, impacté ou brisé ? VISION PARE-BRISE intervient directement à votre domicile dans toute la Sarthe pour remplacer votre vitrage avec des pièces certifiées d'origine. Toutes les assurances sont acceptées et vous ne déboursez rien.",

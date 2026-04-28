@@ -45,10 +45,10 @@ export default function OfferBanner({ variant = 'diagonal' }: OfferBannerProps) 
             {/* Flyer image */}
             <div className="w-[220px] md:w-[280px] shrink-0">
               <Image
-                src="/images/flyer-offre.png"
-                alt="Offre Vision Pare-Brise — Jusqu'à 250€ offerts"
-                width={280}
-                height={400}
+                src="/images/flyer-offre.jpg"
+                alt="Offre Vision Pare-Brise — 200€ offerts ou trottinette électrique"
+                width={1131}
+                height={1600}
                 className="w-full h-auto rounded-2xl shadow-2xl rotate-[-2deg] hover:rotate-0 transition-transform duration-500"
               />
             </div>

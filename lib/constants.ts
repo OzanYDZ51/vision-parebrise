@@ -1,7 +1,7 @@
 export const COMPANY = {
   name: 'VISION PARE-BRISE',
-  phone: '02 55 99 40 46',
-  phoneLink: 'tel:+33255994046',
+  phone: '02 55 99 62 25',
+  phoneLink: 'tel:+33255996225',
   mobile: '06 50 99 12 04',
   mobileLink: 'tel:+33650991204',
   email: 'contact@visionparebrise.fr',

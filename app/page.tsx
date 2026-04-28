@@ -105,10 +105,10 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
             <ScrollReveal animation="fade-right" className="md:w-1/2">
               <Image
-                src="/images/flyer-arguments.png"
-                alt="Les engagements Vision Pare-Brise : technicien qualifié, franchise offerte, intervention à domicile"
-                width={500}
-                height={700}
+                src="/images/flyer-arguments.jpg"
+                alt="Vision Pare-Brise — Intervention en Sarthe, franchise offerte et 0€ reste à charge"
+                width={1414}
+                height={2000}
                 className="w-full max-w-[400px] mx-auto h-auto rounded-3xl shadow-xl"
               />
             </ScrollReveal>
