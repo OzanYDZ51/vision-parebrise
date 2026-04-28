@@ -54,7 +54,7 @@ export async function fetchGoogleReviews(): Promise<{
     if (!result) return null;
 
     const reviews: Testimonial[] = (result.reviews ?? [])
-      .filter((r) => r.text && r.text.trim().length > 0)
+      .filter((r) => r.rating === 5 && r.text && r.text.trim().length > 0)
       .map((r) => ({
         name: r.author_name,
         city: 'Avis Google',
