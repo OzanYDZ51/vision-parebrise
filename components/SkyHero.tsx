@@ -11,9 +11,12 @@ interface SkyHeroProps {
   title?: string;
   subtitle?: string;
   variant?: 'homepage' | 'service' | 'zone';
+  stats?: { rating: number; total: number } | null;
 }
 
-export default function SkyHero({ title, subtitle, variant = 'homepage' }: SkyHeroProps) {
+export default function SkyHero({ title, subtitle, variant = 'homepage', stats }: SkyHeroProps) {
+  const rating = stats?.rating ?? 4.9;
+  const total = stats?.total ?? 87;
   if (variant !== 'homepage') {
     return (
       <section className="relative bg-teal-gradient pt-[100px] pb-16 overflow-hidden">
@@ -47,8 +50,8 @@ export default function SkyHero({ title, subtitle, variant = 'homepage' }: SkyHe
             ))}
           </span>
           <span>
-            <AnimatedCounter end={4.9} decimals={1} className="font-bold text-white" />/5 sur{' '}
-            <AnimatedCounter end={87} className="font-bold text-white" /> avis
+            <AnimatedCounter end={rating} decimals={1} className="font-bold text-white" />/5 sur{' '}
+            <AnimatedCounter end={total} className="font-bold text-white" /> avis
           </span>
         </div>
 

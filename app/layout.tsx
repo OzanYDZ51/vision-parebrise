@@ -7,6 +7,7 @@ import StickyCta from '@/components/StickyCta';
 import ChatWidget from '@/components/ChatWidget';
 import { COMPANY } from '@/lib/constants';
 import { localBusinessSchema, organizationSchema, webSiteSchema } from '@/lib/schema';
+import { fetchGoogleReviews } from '@/lib/google-reviews';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -55,13 +56,14 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const google = await fetchGoogleReviews();
   return (
     <html lang="fr" className={`${outfit.variable} ${baloo2.variable}`}>
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema(google?.stats ?? null)) }}
         />
         <script
           type="application/ld+json"

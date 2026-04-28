@@ -16,6 +16,7 @@ import FloatingClouds from '@/components/FloatingClouds';
 import EyeMascot from '@/components/EyeMascot';
 import { COMPANY, FAQ_ITEMS } from '@/lib/constants';
 import { faqSchema } from '@/lib/schema';
+import { fetchGoogleReviews } from '@/lib/google-reviews';
 import { Shield, Wrench, Car, Camera, Home, FileCheck } from 'lucide-react';
 import { Phone, Calendar } from 'lucide-react';
 
@@ -39,10 +40,11 @@ const services = [
   { icon: Home, title: 'À domicile', description: 'Service gratuit, on vient chez vous.', href: '/services/intervention-domicile', size: 'medium' as const },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const google = await fetchGoogleReviews();
   return (
     <>
-      <SkyHero />
+      <SkyHero stats={google?.stats ?? null} />
       <USPBar />
 
       {/* Photo section */}
@@ -97,7 +99,7 @@ export default function HomePage() {
 
       <ProcessTimeline />
 
-      <TestimonialCarousel />
+      <TestimonialCarousel testimonials={google?.reviews} stats={google?.stats ?? null} />
 
       {/* Why Us - with flyer image */}
       <section className="py-20" aria-labelledby="whyus-title">

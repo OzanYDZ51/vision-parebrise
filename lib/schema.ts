@@ -1,6 +1,7 @@
 import { COMPANY } from './constants';
+import type { GoogleStats } from './google-reviews';
 
-export function localBusinessSchema() {
+export function localBusinessSchema(stats?: GoogleStats | null) {
   return {
     '@context': 'https://schema.org',
     '@type': 'AutoRepair',
@@ -81,8 +82,8 @@ export function localBusinessSchema() {
     },
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '87',
+      ratingValue: stats ? stats.rating.toFixed(1) : '4.9',
+      reviewCount: stats ? String(stats.total) : '87',
       bestRating: '5',
       worstRating: '1',
     },

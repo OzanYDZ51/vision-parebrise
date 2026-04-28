@@ -3,11 +3,18 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { TESTIMONIALS } from '@/lib/constants';
+import type { Testimonial, GoogleStats } from '@/lib/google-reviews';
 import ScrollReveal from './ScrollReveal';
 
-export default function TestimonialCarousel() {
+interface TestimonialCarouselProps {
+  testimonials?: readonly Testimonial[];
+  stats?: GoogleStats | null;
+}
+
+export default function TestimonialCarousel({ testimonials, stats }: TestimonialCarouselProps = {}) {
+  const items = testimonials && testimonials.length > 0 ? testimonials : TESTIMONIALS;
   const [current, setCurrent] = useState(0);
-  const total = TESTIMONIALS.length;
+  const total = items.length;
 
   const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total]);
   const prev = useCallback(() => setCurrent((c) => (c - 1 + total) % total), [total]);
@@ -29,23 +36,33 @@ export default function TestimonialCarousel() {
               Ce qu&apos;ils pensent <span className="text-primary">de nous</span>
             </h2>
             <p className="mt-3 text-text-muted">Nos clients dans la Sarthe nous font confiance. Voici pourquoi.</p>
+            {stats && (
+              <div className="mt-4 inline-flex items-center gap-2 text-sm text-text-muted">
+                <span className="flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className={`w-4 h-4 ${i < Math.round(stats.rating) ? 'fill-amber-400 text-amber-400' : 'text-gray-200'}`} />
+                  ))}
+                </span>
+                <span><span className="font-bold text-text">{stats.rating.toFixed(1)}</span>/5 sur <span className="font-bold text-text">{stats.total}</span> avis Google</span>
+              </div>
+            )}
           </div>
         </ScrollReveal>
 
         <div className="relative flex items-center justify-center min-h-[280px]">
           {/* Previous card */}
           <div className="hidden md:block absolute left-0 w-[300px] opacity-40 scale-90 blur-[1px] transition-all duration-500 pointer-events-none">
-            <TestimonialCard {...TESTIMONIALS[getIndex(-1)]} />
+            <TestimonialCard {...items[getIndex(-1)]} />
           </div>
 
           {/* Current card */}
           <div className="w-full max-w-[500px] transition-all duration-500 z-10">
-            <TestimonialCard {...TESTIMONIALS[current]} featured />
+            <TestimonialCard {...items[current]} featured />
           </div>
 
           {/* Next card */}
           <div className="hidden md:block absolute right-0 w-[300px] opacity-40 scale-90 blur-[1px] transition-all duration-500 pointer-events-none">
-            <TestimonialCard {...TESTIMONIALS[getIndex(1)]} />
+            <TestimonialCard {...items[getIndex(1)]} />
           </div>
         </div>
 
@@ -55,7 +72,7 @@ export default function TestimonialCarousel() {
             <ChevronLeft className="w-5 h-5" />
           </button>
           <div className="flex items-center gap-2">
-            {TESTIMONIALS.map((_, i) => (
+            {items.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
