@@ -75,6 +75,7 @@ export default function BookingTunnel() {
   const [slotsLoading, setSlotsLoading] = useState(false);
   const [dayScrollIndex, setDayScrollIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const honeypotRef = useRef<HTMLInputElement>(null);
   const availableDays = getNextDays(14);
 
   const update = useCallback((fields: Partial<BookingData>) => {
@@ -134,6 +135,7 @@ export default function BookingTunnel() {
           name: data.name.trim(), zip: data.zip.trim(), phone: data.phone.trim(),
           service: data.service, serviceLabel: data.serviceLabel,
           date: data.date, time: data.time, message: data.message?.trim() || '',
+          website: honeypotRef.current?.value || '',
         }),
         headers: { 'Content-Type': 'application/json' },
       });
@@ -345,7 +347,7 @@ export default function BookingTunnel() {
           </div>
           {serverError && <div className="bg-error/5 border border-error/20 rounded-xl p-4 mb-6 text-error text-sm" role="alert">{serverError}</div>}
           <div className="absolute -left-[9999px] opacity-0 h-0 w-0 overflow-hidden" aria-hidden="true">
-            <input type="text" name="website" id="website" tabIndex={-1} autoComplete="off" />
+            <input ref={honeypotRef} type="text" name="website" id="website" tabIndex={-1} autoComplete="off" />
           </div>
           <div className="space-y-4">
             <div>
