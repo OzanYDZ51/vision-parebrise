@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getAllServiceSlugs } from '@/lib/services-data';
 import { getAllCitySlugs } from '@/lib/cities-data';
 
-const BASE_URL = 'https://vision-parebrise.vercel.app';
+const BASE_URL = 'https://visionparebrise.fr';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

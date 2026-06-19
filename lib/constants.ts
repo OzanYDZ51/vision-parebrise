@@ -8,7 +8,7 @@ export const COMPANY = {
   address: '179 rue de Laigné',
   city: '72100 Le Mans',
   slogan: 'On a l\'oeil sur votre pare-brise',
-  url: 'https://vision-parebrise.vercel.app',
+  url: 'https://visionparebrise.fr',
   offer: '250€',
   mapsUrl: 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=179+rue+de+Laign%C3%A9,72100+Le+Mans,France&zoom=15',
   mapsDirections: 'https://maps.google.com/?q=179+rue+de+Laign%C3%A9+72100+Le+Mans',

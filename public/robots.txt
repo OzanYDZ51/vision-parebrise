@@ -13,4 +13,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://vision-parebrise.vercel.app/sitemap.xml
+Sitemap: https://visionparebrise.fr/sitemap.xml
