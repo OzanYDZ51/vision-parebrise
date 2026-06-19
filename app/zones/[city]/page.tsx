@@ -10,6 +10,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import ScrollReveal from '@/components/ScrollReveal';
 import OfferBanner from '@/components/OfferBanner';
 import FaqAccordion from '@/components/FaqAccordion';
+import MapEmbed from '@/components/MapEmbed';
 import { COMPANY, SERVICES_SUBMENU } from '@/lib/constants';
 import { CheckCircle, MapPin, Users, Clock, Shield, ArrowRight, Phone, Calendar, Route, Landmark, Building2 } from 'lucide-react';
 
@@ -135,6 +136,21 @@ export default async function CityPage({ params }: PageProps) {
                 <ChipRow icon={<Route className="w-4 h-4 text-primary" />} label="Axes routiers couverts" items={data.majorRoads} />
                 <ChipRow icon={<Landmark className="w-4 h-4 text-primary" />} label="Points de repère" items={data.landmarks} />
               </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Carte de la zone (OpenStreetMap) */}
+          <ScrollReveal animation="fade-up" delay={325}>
+            <div className="mb-12">
+              <h2 className="text-xl font-display font-bold text-text mb-4">
+                Notre zone d&apos;intervention à {data.name}
+              </h2>
+              <MapEmbed
+                lat={data.geo.latitude}
+                lon={data.geo.longitude}
+                label={`${data.name} (${data.departmentCode})`}
+                delta={0.045}
+              />
             </div>
           </ScrollReveal>
 

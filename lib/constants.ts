@@ -10,8 +10,8 @@ export const COMPANY = {
   slogan: 'On a l\'oeil sur votre pare-brise',
   url: 'https://visionparebrise.fr',
   offer: '250€',
-  mapsUrl: 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=179+rue+de+Laign%C3%A9,72100+Le+Mans,France&zoom=15',
-  mapsDirections: 'https://maps.google.com/?q=179+rue+de+Laign%C3%A9+72100+Le+Mans',
+  geo: { latitude: 47.9796, longitude: 0.2115 },
+  mapsDirections: 'https://www.openstreetmap.org/?mlat=47.9796&mlon=0.2115#map=17/47.9796/0.2115',
   whatsapp: '+33650991204',
   social: {
     instagram: 'https://www.instagram.com/visionparebrise',
