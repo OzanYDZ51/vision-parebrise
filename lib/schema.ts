@@ -1,5 +1,28 @@
 import { COMPANY } from './constants';
 import type { GoogleStats } from './google-reviews';
+import { getAllCities, type CityData } from './cities-data';
+
+const OPENING_HOURS = {
+  '@type': 'OpeningHoursSpecification',
+  dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  opens: '09:00',
+  closes: '17:00',
+};
+
+// Aire desservie complète : chaque ville + ses communes limitrophes (dédupliquées),
+// plus le département et la région — signal "service area" exhaustif pour le SEO local.
+function buildAreaServed() {
+  const names = new Set<string>();
+  for (const c of getAllCities()) {
+    names.add(c.name);
+    for (const n of c.nearbyCommunes) names.add(n);
+  }
+  return [
+    ...Array.from(names).map((name) => ({ '@type': 'City', name })),
+    { '@type': 'AdministrativeArea', name: 'Sarthe' },
+    { '@type': 'AdministrativeArea', name: 'Pays de la Loire' },
+  ];
+}
 
 export function localBusinessSchema(stats?: GoogleStats | null) {
   return {
@@ -30,26 +53,13 @@ export function localBusinessSchema(stats?: GoogleStats | null) {
       addressCountry: 'FR',
     },
     geo: { '@type': 'GeoCoordinates', latitude: 47.9906, longitude: 0.2054 },
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      opens: '09:00',
-      closes: '17:00',
-    },
+    openingHoursSpecification: OPENING_HOURS,
     priceRange: '€€',
     currenciesAccepted: 'EUR',
     paymentAccepted: 'Cash, Credit Card, Insurance',
+    hasMap: COMPANY.mapsDirections,
     sameAs: [COMPANY.social.instagram, COMPANY.social.facebook],
-    areaServed: [
-      { '@type': 'City', name: 'Le Mans' },
-      { '@type': 'City', name: 'Allonnes' },
-      { '@type': 'City', name: 'Coulaines' },
-      { '@type': 'City', name: 'La Flèche' },
-      { '@type': 'City', name: 'Sablé-sur-Sarthe' },
-      { '@type': 'City', name: 'Arnage' },
-      { '@type': 'City', name: 'Mulsanne' },
-      { '@type': 'City', name: 'Ruaudin' },
-    ],
+    areaServed: buildAreaServed(),
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Services vitrage automobile',
@@ -134,26 +144,21 @@ export function webPageSchema(name: string, description: string, url: string) {
   };
 }
 
-export function serviceSchema(name: string, description: string, url: string) {
+export function serviceSchema(
+  name: string,
+  description: string,
+  url: string,
+  areaServed: string[] = ['Le Mans', 'Sarthe'],
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name,
+    serviceType: 'Vitrage automobile',
     description,
     url: `${COMPANY.url}${url}`,
-    provider: {
-      '@type': 'AutoRepair',
-      name: COMPANY.name,
-      telephone: COMPANY.phoneLink,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: COMPANY.address,
-        addressLocality: 'Le Mans',
-        postalCode: '72100',
-        addressCountry: 'FR',
-      },
-    },
-    areaServed: { '@type': 'City', name: 'Le Mans' },
+    provider: { '@id': `${COMPANY.url}/#organization` },
+    areaServed: areaServed.map((name) => ({ '@type': 'City', name })),
     offers: {
       '@type': 'Offer',
       description:
@@ -185,5 +190,50 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
       name: item.name,
       item: `${COMPANY.url}${item.url}`,
     })),
+  };
+}
+
+// LocalBusiness localisé pour chaque page zone : géo de la ville, aire desservie =
+// ville + communes limitrophes, rattaché à l'organisation mère. Renforce le ranking local.
+export function cityBusinessSchema(city: CityData, stats?: GoogleStats | null) {
+  const area = [city.name, ...city.nearbyCommunes].map((name) => ({ '@type': 'City', name }));
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AutoRepair',
+    '@id': `${COMPANY.url}/zones/${city.slug}#business`,
+    name: `${COMPANY.name} — Pare-brise ${city.name}`,
+    description: city.metaDescription,
+    url: `${COMPANY.url}/zones/${city.slug}`,
+    telephone: COMPANY.phoneLink,
+    email: COMPANY.email,
+    image: [`${COMPANY.url}/images/og-image.jpg`],
+    logo: `${COMPANY.url}/images/logo-vision.png`,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: COMPANY.address,
+      addressLocality: 'Le Mans',
+      postalCode: '72100',
+      addressRegion: 'Sarthe',
+      addressCountry: 'FR',
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: city.geo.latitude, longitude: city.geo.longitude },
+    areaServed: area,
+    openingHoursSpecification: OPENING_HOURS,
+    priceRange: '€€',
+    currenciesAccepted: 'EUR',
+    paymentAccepted: 'Cash, Credit Card, Insurance',
+    parentOrganization: { '@id': `${COMPANY.url}/#organization` },
+    sameAs: [COMPANY.social.instagram, COMPANY.social.facebook],
+    ...(stats
+      ? {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: stats.rating.toFixed(1),
+            reviewCount: String(stats.total),
+            bestRating: '5',
+            worstRating: '1',
+          },
+        }
+      : {}),
   };
 }

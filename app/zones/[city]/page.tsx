@@ -2,14 +2,16 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getCityData, getAllCitySlugs, getAllCities } from '@/lib/cities-data';
-import { serviceSchema } from '@/lib/schema';
+import { cityBusinessSchema, serviceSchema, faqSchema } from '@/lib/schema';
+import { fetchGoogleReviews } from '@/lib/google-reviews';
 import SkyHero from '@/components/SkyHero';
 import CloudDivider from '@/components/CloudDivider';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ScrollReveal from '@/components/ScrollReveal';
 import OfferBanner from '@/components/OfferBanner';
+import FaqAccordion from '@/components/FaqAccordion';
 import { COMPANY, SERVICES_SUBMENU } from '@/lib/constants';
-import { CheckCircle, MapPin, Users, Clock, Shield, ArrowRight, Phone, Calendar } from 'lucide-react';
+import { CheckCircle, MapPin, Users, Clock, Shield, ArrowRight, Phone, Calendar, Route, Landmark, Building2 } from 'lucide-react';
 
 interface PageProps {
   params: Promise<{ city: string }>;
@@ -26,6 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: data.metaTitle,
     description: data.metaDescription,
+    keywords: data.targetKeywords,
     alternates: { canonical: `/zones/${city}` },
     openGraph: {
       title: data.metaTitle,
@@ -35,12 +38,32 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+function ChipRow({ icon, label, items }: { icon: React.ReactNode; label: string; items: string[] }) {
+  if (!items?.length) return null;
+  return (
+    <div className="mb-5 last:mb-0">
+      <div className="flex items-center gap-2 mb-2 text-sm font-bold text-text">
+        {icon}
+        {label}
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {items.map((item) => (
+          <span key={item} className="px-3 py-1.5 bg-white border border-primary/15 rounded-full text-xs text-text-muted">
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default async function CityPage({ params }: PageProps) {
   const { city } = await params;
   const data = getCityData(city);
   if (!data) notFound();
 
-  const otherCities = getAllCities().filter((c) => c.slug !== city).slice(0, 4);
+  const google = await fetchGoogleReviews();
+  const otherCities = getAllCities().filter((c) => c.slug !== city);
 
   return (
     <>
@@ -78,8 +101,8 @@ export default async function CityPage({ params }: PageProps) {
 
           {/* Intro */}
           <ScrollReveal animation="fade-up" delay={100}>
-            <div className="max-w-[800px] mb-12">
-              <p className="text-lg text-text-muted leading-relaxed">{data.intro}</p>
+            <div className="max-w-[820px] mb-12">
+              <p className="text-lg text-text-muted leading-relaxed whitespace-pre-line">{data.intro}</p>
             </div>
           </ScrollReveal>
 
@@ -100,8 +123,23 @@ export default async function CityPage({ params }: PageProps) {
             </div>
           </ScrollReveal>
 
-          {/* Services */}
+          {/* Local context + quartiers / axes / repères */}
           <ScrollReveal animation="fade-up" delay={300}>
+            <div className="bg-bg-alt rounded-[28px] p-8 mb-12">
+              <h2 className="text-xl font-display font-bold text-text mb-3">
+                Le pare-brise à {data.name}
+              </h2>
+              <p className="text-sm text-text-muted leading-relaxed whitespace-pre-line mb-6">{data.localContext}</p>
+              <div className="border-t border-primary/10 pt-6">
+                <ChipRow icon={<Building2 className="w-4 h-4 text-primary" />} label={`Quartiers desservis à ${data.name}`} items={data.neighborhoods} />
+                <ChipRow icon={<Route className="w-4 h-4 text-primary" />} label="Axes routiers couverts" items={data.majorRoads} />
+                <ChipRow icon={<Landmark className="w-4 h-4 text-primary" />} label="Points de repère" items={data.landmarks} />
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Services */}
+          <ScrollReveal animation="fade-up" delay={350}>
             <div className="mb-12">
               <h2 className="text-2xl font-display font-extrabold text-text mb-6">
                 Nos services à {data.name}
@@ -114,16 +152,6 @@ export default async function CityPage({ params }: PageProps) {
                   </Link>
                 ))}
               </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Local info */}
-          <ScrollReveal animation="fade-up" delay={350}>
-            <div className="bg-bg-alt rounded-[28px] p-8 mb-12">
-              <h2 className="text-xl font-display font-bold text-text mb-3">
-                Le pare-brise à {data.name}
-              </h2>
-              <p className="text-sm text-text-muted leading-relaxed">{data.localInfo}</p>
             </div>
           </ScrollReveal>
 
@@ -143,13 +171,25 @@ export default async function CityPage({ params }: PageProps) {
             </div>
           </ScrollReveal>
 
-          {/* Offer */}
+          {/* Local FAQ */}
           <ScrollReveal animation="fade-up" delay={450}>
+            <div className="mb-12">
+              <h2 className="text-2xl font-display font-extrabold text-text mb-6">
+                Questions fréquentes — pare-brise à {data.name}
+              </h2>
+              <div className="max-w-[820px]">
+                <FaqAccordion items={data.localFaq} />
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Offer */}
+          <ScrollReveal animation="fade-up" delay={500}>
             <OfferBanner variant="inline" />
           </ScrollReveal>
 
           {/* Other cities */}
-          <ScrollReveal animation="fade-up" delay={500}>
+          <ScrollReveal animation="fade-up" delay={550}>
             <div className="mt-12">
               <h2 className="text-xl font-display font-bold text-text mb-4">Autres zones d&apos;intervention</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -179,6 +219,7 @@ export default async function CityPage({ params }: PageProps) {
                   <Phone className="w-5 h-5" /> {COMPANY.phone}
                 </a>
               </div>
+              <p className="text-white/40 text-xs mt-6">*Jusqu&apos;à 250€ offerts et franchise offerte pour tout remplacement de pare-brise. Voir conditions.</p>
             </div>
           </ScrollReveal>
         </div>
@@ -186,13 +227,22 @@ export default async function CityPage({ params }: PageProps) {
 
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(cityBusinessSchema(data, google?.stats ?? null)) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(serviceSchema(
-            `Pare-brise ${data.name}`,
+            `Remplacement et réparation de pare-brise à ${data.name}`,
             data.metaDescription,
             `/zones/${city}`,
+            [data.name, ...data.nearbyCommunes, data.department],
           )),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(data.localFaq)) }}
       />
     </>
   );
