@@ -10,7 +10,7 @@ import { COMPANY } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Zones d\'intervention Sarthe — Service à Domicile',
-  description: `${COMPANY.name} intervient au Mans et dans toute la Sarthe. Service à domicile gratuit, jusqu'à 250€ offerts, toutes assurances.`,
+  description: `${COMPANY.name} intervient au Mans et dans toute la Sarthe. Service à domicile gratuit, jusqu'à 150€ offerts, toutes assurances.`,
   alternates: { canonical: '/zones' },
 };
 

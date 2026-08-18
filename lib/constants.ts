@@ -9,7 +9,7 @@ export const COMPANY = {
   city: '72100 Le Mans',
   slogan: 'On a l\'oeil sur votre pare-brise',
   url: 'https://visionparebrise.fr',
-  offer: '250€',
+  offer: '150€',
   geo: { latitude: 47.9796, longitude: 0.2115 },
   mapsDirections: 'https://www.openstreetmap.org/?mlat=47.9796&mlon=0.2115#map=17/47.9796/0.2115',
   whatsapp: '+33650991204',
@@ -52,8 +52,8 @@ export const FAQ_ITEMS = [
     answer: "Absolument ! Dès lors que vous disposez d'une garantie bris de glace, votre assurance prend en charge le remplacement intégral. Chez VISION PARE-BRISE, nous nous occupons de tout le dossier administratif. Vous n'avez rien à avancer : c'est le tiers payant.",
   },
   {
-    question: "C'est quoi exactement l'offre 250€ + franchise offerte ?",
-    answer: "Pour chaque remplacement de pare-brise, VISION PARE-BRISE vous fait bénéficier d'un avantage pouvant aller jusqu'à 250€ par virement bancaire, en plus de la prise en charge de votre franchise. Concrètement, dans la plupart des situations, vous ne déboursez pas un centime. Conditions disponibles sur demande.",
+    question: "C'est quoi exactement l'offre 150€ + franchise offerte ?",
+    answer: "Pour chaque remplacement de pare-brise, VISION PARE-BRISE vous fait bénéficier d'un avantage pouvant aller jusqu'à 150€ par virement bancaire, en plus de la prise en charge de votre franchise. Concrètement, dans la plupart des situations, vous ne déboursez pas un centime. Conditions disponibles sur demande.",
   },
   {
     question: 'Ça prend combien de temps un remplacement ?',
@@ -94,7 +94,7 @@ export const TESTIMONIALS = [
     name: 'Sophie M.',
     city: 'Le Mans',
     rating: 5,
-    text: "Service impeccable ! Le technicien est venu directement chez moi, tout était réglé en une heure. Et avec l'offre 250€, je n'ai rien payé du tout. Je recommande vivement.",
+    text: "Service impeccable ! Le technicien est venu directement chez moi, tout était réglé en une heure. Et avec l'offre 150€, je n'ai rien payé du tout. Je recommande vivement.",
     date: '2025-11',
   },
   {
@@ -115,7 +115,7 @@ export const TESTIMONIALS = [
     name: 'Jean-Pierre L.',
     city: 'Coulaines',
     rating: 5,
-    text: "Intervention rapide et soignée sur mon utilitaire. Le technicien était ponctuel, sympa et le travail est nickel. En plus, j'ai touché 250€. Que demander de plus ?",
+    text: "Intervention rapide et soignée sur mon utilitaire. Le technicien était ponctuel, sympa et le travail est nickel. En plus, j'ai touché 150€. Que demander de plus ?",
     date: '2025-09',
   },
   {

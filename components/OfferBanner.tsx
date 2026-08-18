@@ -12,7 +12,7 @@ export default function OfferBanner({ variant = 'diagonal' }: OfferBannerProps) 
     return (
       <div className="bg-primary-light border border-primary/20 rounded-[28px] p-6 text-center">
         <Gift className="w-8 h-8 text-accent mx-auto mb-2" />
-        <p className="font-display font-bold text-xl text-text">Jusqu&apos;à 250€ offerts*</p>
+        <p className="font-display font-bold text-xl text-text">Jusqu&apos;à 150€ offerts*</p>
         <p className="text-sm text-text-muted mt-1">+ franchise offerte pour tout remplacement</p>
         <Link href="/prendre-rdv" className="btn-vision btn-accent text-sm mt-4 !min-h-[40px] !py-2 !px-5">
           En profiter <ArrowRight className="w-4 h-4" />
@@ -26,7 +26,7 @@ export default function OfferBanner({ variant = 'diagonal' }: OfferBannerProps) 
       <ScrollReveal animation="fade-up">
         <div className="bg-teal-gradient rounded-[28px] p-8 md:p-10 text-white text-center">
           <Gift className="w-10 h-10 text-white/80 mx-auto mb-3" />
-          <h3 className="font-display font-extrabold text-2xl md:text-3xl">Jusqu&apos;à 250€ offerts*</h3>
+          <h3 className="font-display font-extrabold text-2xl md:text-3xl">Jusqu&apos;à 150€ offerts*</h3>
           <p className="text-white/60 mt-2">+ franchise offerte pour tout remplacement de pare-brise. Voir conditions.</p>
           <Link href="/prendre-rdv" className="btn-vision btn-accent mt-6">
             <Calendar className="w-5 h-5" /> Prendre rendez-vous
@@ -46,7 +46,7 @@ export default function OfferBanner({ variant = 'diagonal' }: OfferBannerProps) 
             <div className="w-[220px] md:w-[280px] shrink-0">
               <Image
                 src="/images/flyer-offre.jpg"
-                alt="Offre Vision Pare-Brise — 200€ offerts ou trottinette électrique"
+                alt="Offre Vision Pare-Brise — 150€ offerts ou trottinette électrique"
                 width={1131}
                 height={1600}
                 className="w-full h-auto rounded-2xl shadow-2xl rotate-[-2deg] hover:rotate-0 transition-transform duration-500"
@@ -58,7 +58,7 @@ export default function OfferBanner({ variant = 'diagonal' }: OfferBannerProps) 
                 <Gift className="w-4 h-4" /> Offre exclusive
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-white leading-tight">
-                Jusqu&apos;à 250€ offerts*
+                Jusqu&apos;à 150€ offerts*
               </h2>
               <p className="text-white/70 text-lg mt-4 max-w-[500px]">
                 + franchise offerte pour tout remplacement de pare-brise. Sans avance de frais, toutes assurances.

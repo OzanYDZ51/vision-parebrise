@@ -95,7 +95,7 @@ export default async function CityPage({ params }: PageProps) {
               </div>
               <div className="bg-primary-light rounded-[20px] p-5 text-center">
                 <Shield className="w-6 h-6 text-primary mx-auto mb-2" />
-                <p className="text-sm font-bold text-text">250€ offerts*</p>
+                <p className="text-sm font-bold text-text">150€ offerts*</p>
               </div>
             </div>
           </ScrollReveal>
@@ -235,7 +235,7 @@ export default async function CityPage({ params }: PageProps) {
                   <Phone className="w-5 h-5" /> {COMPANY.phone}
                 </a>
               </div>
-              <p className="text-white/40 text-xs mt-6">*Jusqu&apos;à 250€ offerts et franchise offerte pour tout remplacement de pare-brise. Voir conditions.</p>
+              <p className="text-white/40 text-xs mt-6">*Jusqu&apos;à 150€ offerts et franchise offerte pour tout remplacement de pare-brise. Voir conditions.</p>
             </div>
           </ScrollReveal>
         </div>

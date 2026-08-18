@@ -26,10 +26,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(COMPANY.url),
   title: {
     template: `%s | ${COMPANY.name} Le Mans`,
-    default: `${COMPANY.name} — Remplacement & Réparation Pare-brise Le Mans | Jusqu'à 250€ Offerts`,
+    default: `${COMPANY.name} — Remplacement & Réparation Pare-brise Le Mans | Jusqu'à 150€ Offerts`,
   },
   description:
-    'Remplacement et réparation de pare-brise au Mans et en Sarthe. Jusqu\'à 250€ offerts, franchise offerte, toutes assurances sans avance de frais. Service à domicile 7j/7.',
+    'Remplacement et réparation de pare-brise au Mans et en Sarthe. Jusqu\'à 150€ offerts, franchise offerte, toutes assurances sans avance de frais. Service à domicile 7j/7.',
   keywords: [
     'pare-brise Le Mans',
     'remplacement pare-brise Le Mans',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     'pare-brise Sarthe',
     'vitrage automobile Le Mans',
     'pare-brise assurance Le Mans',
-    '250€ offerts pare-brise',
+    '150€ offerts pare-brise',
     'pare-brise domicile Le Mans',
     'calibrage ADAS Le Mans',
     'Vision Pare-Brise',

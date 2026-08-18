@@ -186,7 +186,7 @@ export default function BookingTunnel() {
           <h2 className="text-2xl md:text-3xl font-display font-extrabold text-text mb-3">Rendez-vous confirmé !</h2>
           <p className="text-text-muted mb-1">Merci <b className="text-text">{data.name}</b></p>
           <p className="text-text-muted mb-2 text-sm">Votre créneau est réservé. Un technicien vous rappelle pour confirmer les détails.</p>
-          <p className="text-primary font-bold text-sm mb-8">Vous bénéficiez de jusqu&apos;à 250€ offerts* + franchise offerte*.</p>
+          <p className="text-primary font-bold text-sm mb-8">Vous bénéficiez de jusqu&apos;à 150€ offerts* + franchise offerte*.</p>
           <div className="bg-bg-alt rounded-2xl p-4 text-left text-sm space-y-2 mb-8">
             {[
               { l: 'Vitrage', v: data.serviceLabel },
@@ -380,7 +380,7 @@ export default function BookingTunnel() {
             )}
             <div className="flex items-center gap-3 bg-primary/5 border border-primary/20 rounded-xl px-4 py-3">
               <Gift className="w-5 h-5 text-accent shrink-0" />
-              <span className="text-sm text-text"><b className="text-primary">Jusqu&apos;à 250€ offerts* + franchise offerte*</b> pour toute prise de rendez-vous</span>
+              <span className="text-sm text-text"><b className="text-primary">Jusqu&apos;à 150€ offerts* + franchise offerte*</b> pour toute prise de rendez-vous</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-text-light bg-bg-alt rounded-xl px-4 py-3">
               <Shield className="w-4 h-4 text-success shrink-0" />

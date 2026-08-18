@@ -23,9 +23,9 @@ import { Phone, Calendar } from 'lucide-react';
 export const metadata: Metadata = {
   alternates: { canonical: '/' },
   openGraph: {
-    title: `${COMPANY.name} — Remplacement & Réparation Pare-brise Le Mans | Jusqu'à 250€ Offerts`,
+    title: `${COMPANY.name} — Remplacement & Réparation Pare-brise Le Mans | Jusqu'à 150€ Offerts`,
     description:
-      'Remplacement et réparation de pare-brise au Mans et en Sarthe. Jusqu\'à 250€ offerts, toutes assurances sans avance de frais, service à domicile. Ouvert 7j/7.',
+      'Remplacement et réparation de pare-brise au Mans et en Sarthe. Jusqu\'à 150€ offerts, toutes assurances sans avance de frais, service à domicile. Ouvert 7j/7.',
     url: '/',
     images: [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: `Technicien ${COMPANY.name} au Mans` }],
   },
@@ -188,7 +188,7 @@ export default async function HomePage() {
               Pare-brise fissuré ?<br />On a l&apos;oeil !
             </h2>
             <p className="text-white/60 mt-4 leading-relaxed text-lg">
-              Prenez rendez-vous et bénéficiez de jusqu&apos;à 250€ offerts* + franchise offerte*. Sans avance de frais.
+              Prenez rendez-vous et bénéficiez de jusqu&apos;à 150€ offerts* + franchise offerte*. Sans avance de frais.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
               <Link href="/prendre-rdv" className="btn-vision btn-accent animate-pulse-soft text-base">

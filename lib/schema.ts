@@ -31,7 +31,7 @@ export function localBusinessSchema(stats?: GoogleStats | null) {
     '@id': `${COMPANY.url}/#organization`,
     name: COMPANY.name,
     description:
-      'Spécialiste du remplacement et de la réparation de pare-brise au Mans et dans toute la Sarthe. Jusqu\'à 250€ offerts, toutes assurances, intervention à domicile.',
+      'Spécialiste du remplacement et de la réparation de pare-brise au Mans et dans toute la Sarthe. Jusqu\'à 150€ offerts, toutes assurances, intervention à domicile.',
     url: COMPANY.url,
     telephone: COMPANY.phoneLink,
     email: COMPANY.email,
@@ -69,7 +69,7 @@ export function localBusinessSchema(stats?: GoogleStats | null) {
           itemOffered: {
             '@type': 'Service',
             name: 'Remplacement de pare-brise',
-            description: 'Jusqu\'à 250€ offerts pour tout remplacement. Prise en charge assurance sans avance de frais.',
+            description: 'Jusqu\'à 150€ offerts pour tout remplacement. Prise en charge assurance sans avance de frais.',
           },
         },
         {
@@ -162,7 +162,7 @@ export function serviceSchema(
     offers: {
       '@type': 'Offer',
       description:
-        'Jusqu\'à 250€ offerts pour tout remplacement de pare-brise. Prise en charge par toutes les assurances sans avance de frais.',
+        'Jusqu\'à 150€ offerts pour tout remplacement de pare-brise. Prise en charge par toutes les assurances sans avance de frais.',
       priceCurrency: 'EUR',
     },
   };

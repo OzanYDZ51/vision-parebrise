@@ -15,7 +15,7 @@ const FLOWS: Record<FlowKey, { question: string; answer: string; cta?: { label: 
   },
   remplacement: {
     question: 'Mon pare-brise est fissuré/cassé',
-    answer: "Pas de panique ! On se déplace chez vous pour le remplacer en environ 1h. Avec notre offre, vous pouvez bénéficier de jusqu'à 250€ offerts et la franchise est offerte.",
+    answer: "Pas de panique ! On se déplace chez vous pour le remplacer en environ 1h. Avec notre offre, vous pouvez bénéficier de jusqu'à 150€ offerts et la franchise est offerte.",
     cta: { label: 'Prendre RDV', href: '/prendre-rdv' },
   },
   assurance: {
@@ -23,8 +23,8 @@ const FLOWS: Record<FlowKey, { question: string; answer: string; cta?: { label: 
     answer: "C'est très simple : on gère tout le dossier avec votre assureur. Vous n'avancez aucun frais (tiers payant intégral). Toutes les compagnies d'assurance sont acceptées.",
   },
   offre: {
-    question: "C'est quoi l'offre 250€ ?",
-    answer: "Pour chaque remplacement de pare-brise, VISION PARE-BRISE vous offre jusqu'à 250€ par virement bancaire + votre franchise est prise en charge. Dans la majorité des cas, c'est 0€ à payer !",
+    question: "C'est quoi l'offre 150€ ?",
+    answer: "Pour chaque remplacement de pare-brise, VISION PARE-BRISE vous offre jusqu'à 150€ par virement bancaire + votre franchise est prise en charge. Dans la majorité des cas, c'est 0€ à payer !",
     cta: { label: 'En profiter', href: '/prendre-rdv' },
   },
   rdv: {

@@ -2,7 +2,7 @@ import { Gift, BadgeEuro, Home, ShieldCheck, Award } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const usps = [
-  { icon: Gift, label: '250€ offerts*', color: 'text-accent' },
+  { icon: Gift, label: '150€ offerts*', color: 'text-accent' },
   { icon: BadgeEuro, label: '0€ reste à charge', color: 'text-primary' },
   { icon: Home, label: 'Pose à domicile', color: 'text-primary' },
   { icon: ShieldCheck, label: 'Franchise offerte', color: 'text-primary' },

@@ -9,7 +9,7 @@ import { MapPin, Phone, Smartphone, Mail, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Prendre Rendez-vous — Pare-brise Le Mans',
-  description: `Prenez rendez-vous en ligne pour le remplacement ou la réparation de votre pare-brise avec ${COMPANY.name}. Jusqu'à 250€ offerts, intervention à domicile.`,
+  description: `Prenez rendez-vous en ligne pour le remplacement ou la réparation de votre pare-brise avec ${COMPANY.name}. Jusqu'à 150€ offerts, intervention à domicile.`,
   alternates: { canonical: '/prendre-rdv' },
 };
 
