@@ -37,6 +37,12 @@ export default function MentionsLegalesPage() {
               440 N Barranca Ave #4133, Covina, CA 91723, États-Unis
             </p>
 
+            <h2 className="text-xl font-display font-bold text-text mt-8">Conception du site</h2>
+            <p>
+              Conception du site :{' '}
+              <a href="https://onify.fr" target="_blank" rel="noopener" className="text-primary">Onify</a>
+            </p>
+
             <h2 className="text-xl font-display font-bold text-text mt-8">Propriété intellectuelle</h2>
             <p>
               L&apos;ensemble du contenu de ce site (textes, images, logos, icônes, vidéos) est la propriété

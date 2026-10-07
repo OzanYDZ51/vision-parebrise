@@ -113,9 +113,13 @@ export default function Footer() {
             <p className="text-text-light text-xs">
               &copy; {new Date().getFullYear()} {COMPANY.name}. Tous droits réservés.
             </p>
-            <div className="flex items-center gap-4 text-xs text-text-light">
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-text-light">
               <Link href="/mentions-legales" className="hover:text-primary transition-colors">Mentions légales</Link>
               <Link href="/politique-confidentialite" className="hover:text-primary transition-colors">Politique de confidentialité</Link>
+              <span>
+                Site réalisé par{' '}
+                <a href="https://onify.fr" target="_blank" rel="noopener" className="hover:text-primary transition-colors">Onify</a>
+              </span>
             </div>
           </div>
         </div>
