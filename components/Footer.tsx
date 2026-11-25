@@ -117,8 +117,9 @@ export default function Footer() {
               <Link href="/mentions-legales" className="hover:text-primary transition-colors">Mentions légales</Link>
               <Link href="/politique-confidentialite" className="hover:text-primary transition-colors">Politique de confidentialité</Link>
               <span>
-                Site réalisé par{' '}
-                <a href="https://onify.fr" target="_blank" rel="noopener" className="hover:text-primary transition-colors">Onify</a>
+                Site réalisé et hébergé par{' '}
+                <a href="https://dynamic-web.fr/realisations/visionparebrise" target="_blank" rel="noopener" className="hover:text-primary transition-colors">DYNAMIC WEB</a>,
+                éditeur d’<a href="https://onify.fr" target="_blank" rel="noopener" className="hover:text-primary transition-colors">Onify</a>
               </span>
             </div>
           </div>

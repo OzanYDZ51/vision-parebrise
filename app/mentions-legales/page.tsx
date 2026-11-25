@@ -39,8 +39,9 @@ export default function MentionsLegalesPage() {
 
             <h2 className="text-xl font-display font-bold text-text mt-8">Conception du site</h2>
             <p>
-              Conception du site :{' '}
-              <a href="https://onify.fr" target="_blank" rel="noopener" className="text-primary">Onify</a>
+              Conception et hébergement du site :{' '}
+              <a href="https://dynamic-web.fr/realisations/visionparebrise" target="_blank" rel="noopener" className="text-primary">DYNAMIC WEB</a>, éditeur
+              d’<a href="https://onify.fr" target="_blank" rel="noopener" className="text-primary">Onify</a>
             </p>
 
             <h2 className="text-xl font-display font-bold text-text mt-8">Propriété intellectuelle</h2>
